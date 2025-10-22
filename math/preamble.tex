@@ -1,10 +1,9 @@
 \documentclass[a4paper, 12pt]{article} % Установка размера бумаги, размера шрифта и типа документа
 
-% Пакеты для работы русского языка
+% Пакеты для работы русского зыка
 \usepackage[english, russian]{babel}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{pifont}
 
 \usepackage{indentfirst} % Делает красную строку в начале первого абзаца каждого раздела
 
@@ -20,106 +19,32 @@
 \usepackage{geometry} % Пакет для изменения размеров полей
 \geometry{top = 20mm}
 \geometry{bottom = 20mm}
-\geometry{left = 15mm}
+\geometry{left = 20mm}
 \geometry{right = 20mm}
-
-\newcommand{\currentdate}{30}
-\newcommand{\setdate}[1]{\renewcommand{\currentdate}{#1}}
-\newcommand{\currentmanth}{сентября}
-\newcommand{\setmanth}[1]{\renewcommand{\currentmanth}{#1}}
-
-\usepackage{customdice}
-
-\usepackage{tikz}
-\usetikzlibrary{decorations.pathmorphing}
-\newcommand{\reduwave}[1]{%
-	\tikz[baseline=(X.base)]{
-		\node[inner sep=0pt,outer sep=0pt] (X) {#1};
-		\draw[red,semithick,decorate,decoration={snake,amplitude=1.2pt,segment length=4pt}] 
-		([yshift=.5pt]X.south west) -- ([yshift=.5pt]X.south east);
-	}%
-}
-
-\fboxsep=1.5pt
-\fboxrule=0.7pt
-
-\newcommand{\smalldots}{\ensuremath{\mathinner{\hbox{.}\kern0.08em\hbox{.}\kern0.08em\hbox{.}}}}
-
-
-\newcommand{\phantomobj}[3][0pt]{%
-	\begingroup
-	\def\tempdx{#1}%
-	\def\tempdy{#2}%
-	\raisebox{\tempdy}[0pt][0pt]{%
-		\makebox[0pt][l]{%
-			\hspace{\tempdx}#3%
-		}%
-	}%
-	\endgroup
-}
 
 \usepackage{titleps} % Пакет для колонтитулов
 \newpagestyle{main}{ % Создаём стиль с названием main
-	\setheadrule{0.4pt} % Толщина верхней линии
-	\sethead{%
-		\small\itshape\ttfamily\parbox{3.5cm}{\currentdate\hspace{3.5pt}\currentmanth\hspace{3.5pt}2025}}%
-		{}%
-		{\itshape\ttfamily\parbox{4.404cm}%
-			{очень\hspace{3.5pt}сложные\hspace{3.5pt}вопросы} %
-			\parbox{18pt}%
-			{\vspace{-5pt}\includegraphics[width=17pt]{panda.png}}} % Текст сверху
-	\setfootrule{0.4pt} % Толщина нижний линии
-	\setfoot{}{\thepage}{} %Текст снизу (\thepage - счётчик страниц)
+	\setheadrule{0pt} % Толщина верхней линии
+	\sethead{}{}{}
+	\setfootrule{0pt} % Толщина нижний линии
+	\setfoot{}{\thepage}{} 
 }
 
 \pagestyle{main} % Установка этого стиля
 
 \parskip=6pt plus 2pt minus 1pt 
+\parindent=0pt
 
-% Теоремы (используется пакет amsthm)
-\theoremstyle{plain} % Стиль написания
-\newtheorem{theorem}{Теорема}[] % Текст
-\newtheorem{slv}{Следствие}
-\newtheorem{utv}{Утверждение}
-\newtheorem{opr}{Определение}
-\newtheorem{zam}{Замечание}
-\newtheorem*{proof1}{Доказательство} % * отменяет нумерацию
 
 
 \usepackage{enumitem}
 \usepackage{xfrac}
 \usepackage{tikz}
 
-\newcommand*{\cl}{\ensuremath{\mathop{\mathrm{Cl}}}}
-\newcommand*{\im}{\ensuremath{\mathop{\mathrm{Im}}}}
-\newcommand*{\re}{\ensuremath{\mathop{\mathrm{Re}}}}
-\newcommand*{\eps}{\ensuremath{\varepsilon}}
-\newcommand*{\smaller}{\ensuremath{\leqslant}}
-\newcommand*{\biger}{\ensuremath{\geqslant}}
-\newcommand*{\A}{для любого }
-\newcommand*{\no}{\ensuremath{\varnothing}}
-%\newcommand{\su}[1]{\raisebox{-4pt}{\ensuremath{\Bigl|_#1}\hspace{-4pt}}}
-\newcommand*{\su}[1]{\hspace{-1pt}\tikz[baseline=-9.5pt]  \path[draw, line width = 0.5pt] (0,0) -- node[below=7pt, left=-13pt] {\ensuremath{{}_#1}} (0,-0.7); \hspace{-8pt}}
-\newcommand*{\rproof}{\tikz[baseline=-5pt] \node[draw, inner sep=0.5pt, text height=1.5ex, text depth=0.25ex, text width=16pt, align=center, semithick, rounded corners=0.5pt]{\hspace{1.3pt}\ensuremath{\Rightarrow}};}
-\newcommand*{\lproof}{\tikz[baseline=-5pt] \node[draw, inner sep=0.5pt, text height=1.5ex, text depth=0.25ex, text width=16pt, align=center, semithick, rounded corners=0.5pt]{\ensuremath{\Leftarrow}};}
-\newcommand*{\cov}{\ensuremath{\mathop{\mathrm{Cov}}}}
 
-
-\newcommand{\uns}[1]{\textcolor[rgb]{0.47,0.47,0.47}{#1}}
-\newcommand{\luns}[1]{\textcolor[rgb]{0.24,0.11,0.49}{#1}}
-
-
-\renewcommand{\labelitemi}{\footnotesize\ding{70}}
-\usepackage{secdot}
-\sectiondot{subsubsection}
-\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
 
 
 \makeatletter
-
-\renewcommand{\l@subsubsection}{\@dottedtocline{3}{0.5em}{2.5em}}
-\renewcommand{\@dotsep}{3}
-
 \renewcommand{\@listI}{% Команда, которая выполняется при входе в списки
 	\leftmargin=25pt % Отступ слева 20pt
 	\addtolength{\leftmargin}{\hangindent} % Плюс значение, которое установлено для дополнительного отступа у всех строк абзаца

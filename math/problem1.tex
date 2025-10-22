@@ -1,0 +1,54 @@
+\textbf{\large Задача №1}\\
+\hspace*{0.5cm}Разложить функцию $f(x,y,z) = x^{yz}$ по формуле Тейлора в окрестности точки $(1,1,1)$ до $o\bigl((x-1)^2) + (y-1)^2 + (z-1)^2\bigr)$.\\[0.5cm]
+\textbf{Решение:}\\
+\hspace*{0.5cm} Частные производные первого и второго порядка:
+\begin{equation*}
+	\begin{aligned}
+		&\frac{\partial f}{\partial x} = yzx^{yz-1},\\[5pt]
+		&\frac{\partial f}{\partial y} = x^{yz}z\ln x,\\[5pt]
+		&\frac{\partial f}{\partial z} = x^{yz}y\ln x,\\[5pt]
+	\end{aligned} \qquad\qquad
+	\begin{aligned}
+		&\frac{\partial^2 f}{\partial x^2} = (yz)(yz-1)x^{yz-2},\\[5pt]
+		&\frac{\partial^2 f}{\partial y^2} = x^{yz}(z\ln x)^2,\\[5pt]
+		&\frac{\partial^2 f}{\partial z^2} = x^{yz}(y\ln x)^2,\\[5pt]
+	\end{aligned} \qquad\qquad
+	\begin{aligned}
+		&\frac{\partial^2 f}{\partial x\partial y} = z(x^{yz-1} + yx^{yz-1}z\ln x),\\[5pt]
+		&\frac{\partial^2 f}{\partial x \partial z} = y(x^{yz-1} + yx^{yz-1}z\ln x),\\[5pt]
+		&\frac{\partial^2 f}{\partial y \partial z} =  (z \ln x + 1)x^{yz} \ln x.\\[5pt]
+	\end{aligned}
+\end{equation*}
+Значения в точке $(1,1,1)$:
+\begin{equation*}
+	\begin{aligned}
+		f(1,1,1) = 1,
+	\end{aligned}\qquad\qquad
+	\begin{aligned}
+		&\frac{\partial f}{\partial x} (1,1,1) = 1,\\[5pt]
+		&\frac{\partial f}{\partial y} (1,1,1) = 0,\\[5pt]
+		&\frac{\partial f}{\partial z} (1,1,1) = 0,\\[5pt]
+	\end{aligned} \qquad\qquad
+	\begin{aligned}
+		&\frac{\partial^2 f}{\partial x^2} (1,1,1) = 0,\\[5pt]
+		&\frac{\partial^2 f}{\partial y^2} (1,1,1) = 0,\\[5pt]
+		&\frac{\partial^2 f}{\partial z^2} (1,1,1) = 0,\\[5pt]
+	\end{aligned} \qquad\qquad
+	\begin{aligned}
+		&\frac{\partial^2 f}{\partial x\partial y} (1,1,1) = 1,\\[5pt]
+		&\frac{\partial^2 f}{\partial x \partial z} (1,1,1) = 1,\\[5pt]
+		&\frac{\partial^2 f}{\partial y \partial z} (1,1,1) = 0.\\[5pt]
+	\end{aligned}
+\end{equation*}
+
+Формула тейлора в точке $(1,1,1)$ до $o\bigl((x-1)^2) + (y-1)^2 + (z-1)^2\bigr)$:
+\begin{equation*}
+	\begin{aligned}
+		&f(x,y,z) = f(1,1,1) +\frac{\partial f}{\partial x}(1,1,1) \cdot(x-1) + \frac{\partial f}{\partial y}(1,1,1) \cdot (y-1) + \frac{\partial f}{\partial z}(1,1,1) \cdot(z-1) + {}\\
+		{} &+\frac12\cdot\frac{\partial^2 f}{\partial x^2}(1,1,1)\cdot (x-1)^2 + \frac12\cdot\frac{\partial^2 f}{\partial y^2}(1,1,1) \cdot (y-1)^2 + \frac12\cdot\frac{\partial^2 f}{\partial z^2}(1,1,1)\cdot (z-1)^2 + {}\\
+		{} &+\frac{\partial^2 f}{\partial x\partial y}(1,1,1) \cdot(x-1)(y-1) + \frac{\partial^2 f}{\partial x\partial z}(1,1,1) \cdot (x-1)(z-1) + {}\\ {} &+ \frac{\partial^2 f}{\partial y \partial z}(1,1,1) \cdot(y-1)(z-1) + {} o\bigl((x-1)^2) + (y-1)^2 + (z-1)^2\bigr).
+	\end{aligned}
+\end{equation*}
+Подставляя значения, получаем \textbf{ответ:} 
+\[f(x,y,z) = 1 + (x-1) + (x-1)(y-1) + (x-1)(z-1) + o\bigl((x-1)^2) + (y-1)^2 + (z-1)^2\bigr).\]
+\vspace{0.5cm}
